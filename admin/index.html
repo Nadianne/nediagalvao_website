@@ -1,13 +1,41 @@
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <title>CMS | Nedia Galvão</title>
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
 
-  <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <title>CMS | Nedia Galvão</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  ```
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        const hash = window.location.hash || "";
+
+        if (!user && hash.includes("invite_token")) {
+          window.netlifyIdentity.open("signup");
+        }
+
+        if (!user && hash.includes("recovery_token")) {
+          window.netlifyIdentity.open("recovery");
+        }
+      });
+
+      window.netlifyIdentity.on("login", function () {
+        window.location.href = "/admin/";
+      });
+    }
+  </script>
+
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  ```
+
+</body>
+
 </html>
