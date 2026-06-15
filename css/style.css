@@ -1196,16 +1196,14 @@ body.modal-open {
   width: min(1420px, 92%);
   margin: 0 auto;
   min-height: 560px;
-  background:
-    radial-gradient(circle at 78% 55%, rgba(255, 255, 255, 0.14), transparent 30%),
-    linear-gradient(135deg, #101010 0%, #171717 58%, #090909 100%);
+  background:#0A0A0A;
   color: #ffffff;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: 30px;
   border-radius: 0;
-  padding: 72px 0 46px 72px;
+  padding: 7px 0 46px 72px;
   position: relative;
   overflow: hidden;
 }
