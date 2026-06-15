@@ -1,67 +1,14 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>CMS | Nedia Galvão</title>
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
-        const hash = window.location.hash || "";
-
-        if (!user && hash.includes("invite_token")) {
-          window.netlifyIdentity.open("signup");
-        }
-
-        if (!user && hash.includes("recovery_token")) {
-          window.netlifyIdentity.open("recovery");
-        }
-      });
-
-      window.netlifyIdentity.on("login", function () {
-        window.location.href = "/admin/#/";
-      });
-    }
-
-    fetch("/admin/config.yml?v=" + Date.now(), {
-      cache: "no-store"
-    })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Erro HTTP ao carregar config.yml: " + response.status);
-        }
-
-        return response.text();
-      })
-      .then(function (yamlText) {
-        const config = jsyaml.load(yamlText);
-        CMS.init({ config: config });
-      })
-      .catch(function (error) {
-        console.error("Erro ao carregar o CMS:", error);
-
-        document.body.innerHTML =
-          "<main style='font-family: sans-serif; max-width: 720px; margin: 80px auto; padding: 20px;'>" +
-          "<h1>Erro ao carregar o CMS</h1>" +
-          "<p>O arquivo <code>config.yml</code> não pôde ser carregado pelo painel.</p>" +
-          "<pre style='white-space: pre-wrap; background: #eee; padding: 16px;'>" +
-          error.message +
-          "</pre>" +
-          "</main>";
-      });
-  </script>
 </body>
 
 </html>

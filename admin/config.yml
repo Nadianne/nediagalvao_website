@@ -1,11 +1,12 @@
 backend:
-  name: git-gateway
-  branch: refactor-blog-local
+  name: github
+  repo: Nadianne/nediagalvao_website
+  branch: main
 
 publish_mode: editorial_workflow
 
-site_url: https://joyful-gelato-0ad0f8.netlify.app
-display_url: https://joyful-gelato-0ad0f8.netlify.app
+site_url: https://nediagalvao-website.pages.dev
+display_url: https://nediagalvao-website.pages.dev
 
 locale: pt
 
