@@ -1,9 +1,8 @@
 local_backend: true
 
 backend:
-  name: github
-  repo: Nadianne/nediagalvao_website
-  branch: main
+name: git-gateway
+branch: refactor-blog-local
 
 publish_mode: editorial_workflow
 
