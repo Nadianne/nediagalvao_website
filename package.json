@@ -1,0 +1,16 @@
+{
+  "name": "nediagalvao-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site estático em Jekyll com Decap CMS para gerenciamento de conteúdos.",
+  "scripts": {
+    "cms": "decap-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nadianne/nediagalvao_website.git"
+  },
+  "devDependencies": {
+    "decap-server": "^3.9.1"
+  }
+}
