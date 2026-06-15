@@ -1,8 +1,8 @@
 local_backend: true
 
 backend:
-name: git-gateway
-branch: refactor-blog-local
+  name: git-gateway
+  branch: refactor-blog-local
 
 publish_mode: editorial_workflow
 
@@ -15,212 +15,201 @@ media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
 collections:
+  - name: "artigos_escritos"
+    label: "✍️ Artigos"
+    folder: "_conteudos"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "conteudos/{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
+      - { label: "Tipo", name: "tipo", widget: "hidden", default: "artigo" }
 
-* name: "artigos_escritos"
-  label: "✍️ Artigos"
-  folder: "_conteudos"
-  create: true
-  slug: "{{slug}}"
-  extension: "md"
-  format: "frontmatter"
-  preview_path: "conteudos/{{slug}}"
-  fields:
+      - label: "Título do artigo"
+        name: "title"
+        widget: "string"
 
-  * { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
+      - label: "Endereço da página"
+        name: "slug"
+        widget: "string"
+        hint: "Ex: maes-cristas-nao-sao-marionetes"
 
-  * { label: "Tipo", name: "tipo", widget: "hidden", default: "artigo" }
+      - label: "Onde aparece?"
+        name: "secao"
+        widget: "select"
+        options:
+          - { label: "Artigos", value: "artigos" }
+          - { label: "Resenhas", value: "resenhas" }
 
-  * label: "Título do artigo"
-    name: "title"
-    widget: "string"
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
 
-  * label: "Endereço da página"
-    name: "slug"
-    widget: "string"
-    hint: "Ex: maes-cristas-nao-sao-marionetes"
+      - label: "Resumo para o card"
+        name: "description"
+        widget: "text"
 
-  * label: "Onde aparece?"
-    name: "secao"
-    widget: "select"
-    options:
+      - label: "Imagem do card"
+        name: "image"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: false
 
-    * { label: "Artigos", value: "artigos" }
-    * { label: "Resenhas", value: "resenhas" }
+      - label: "Origem/Publicação"
+        name: "origem"
+        widget: "string"
+        required: false
 
-  * label: "Data"
-    name: "date"
-    widget: "datetime"
-    format: "YYYY-MM-DD"
-    date_format: "DD/MM/YYYY"
-    time_format: false
+      - label: "Destacar?"
+        name: "destaque"
+        widget: "boolean"
+        default: false
 
-  * label: "Resumo para o card"
-    name: "description"
-    widget: "text"
+      - label: "Modelo visual do artigo"
+        name: "modelo_artigo"
+        widget: "select"
+        default: "simples"
+        options:
+          - { label: "Texto simples", value: "simples" }
+          - { label: "Imagem no topo + texto", value: "imagem_topo" }
+          - { label: "Imagem lateral + texto", value: "imagem_lateral" }
+          - { label: "Texto em colunas", value: "colunas" }
+        hint: "Escolha como o artigo será exibido na página."
 
-  * label: "Imagem do card"
-    name: "image"
-    widget: "image"
-    required: false
-    media_library:
-    config:
-    multiple: false
+      - label: "Texto do artigo"
+        name: "body"
+        widget: "markdown"
 
-  * label: "Origem/Publicação"
-    name: "origem"
-    widget: "string"
-    required: false
+  - name: "publicacoes_pdf"
+    label: "📎 Publicações em PDF"
+    folder: "_conteudos"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "conteudos/{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
+      - { label: "Tipo", name: "tipo", widget: "hidden", default: "pdf" }
 
-  * label: "Destacar?"
-    name: "destaque"
-    widget: "boolean"
-    default: false
+      - label: "Título"
+        name: "title"
+        widget: "string"
 
-  * label: "Modelo visual do artigo"
-    name: "modelo_artigo"
-    widget: "select"
-    default: "simples"
-    options:
+      - label: "Endereço da página"
+        name: "slug"
+        widget: "string"
 
-    * { label: "Texto simples", value: "simples" }
-    * { label: "Imagem no topo + texto", value: "imagem_topo" }
-    * { label: "Imagem lateral + texto", value: "imagem_lateral" }
-    * { label: "Texto em colunas", value: "colunas" }
-      hint: "Escolha como o artigo será exibido na página."
+      - label: "Onde aparece?"
+        name: "secao"
+        widget: "select"
+        options:
+          - { label: "Artigos", value: "artigos" }
+          - { label: "Resenhas", value: "resenhas" }
+          - { label: "Livros", value: "livros" }
+          - { label: "Revistas EBD", value: "revistas" }
 
-  * label: "Texto do artigo"
-    name: "body"
-    widget: "markdown"
+      - label: "Arquivo PDF"
+        name: "pdf"
+        widget: "file"
+        media_folder: "assets/pdfs/uploads"
+        public_folder: "/assets/pdfs/uploads"
+        required: false
+        media_library:
+          config:
+            multiple: false
 
-* name: "publicacoes_pdf"
-  label: "📎 Publicações em PDF"
-  folder: "_conteudos"
-  create: true
-  slug: "{{slug}}"
-  extension: "md"
-  format: "frontmatter"
-  preview_path: "conteudos/{{slug}}"
-  fields:
+      - label: "Imagem do card"
+        name: "image"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: false
 
-  * { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
+      - label: "Resumo para o card"
+        name: "description"
+        widget: "text"
 
-  * { label: "Tipo", name: "tipo", widget: "hidden", default: "pdf" }
+      - label: "Origem/Publicação"
+        name: "origem"
+        widget: "string"
+        required: false
 
-  * label: "Título"
-    name: "title"
-    widget: "string"
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
 
-  * label: "Endereço da página"
-    name: "slug"
-    widget: "string"
+      - label: "Destacar?"
+        name: "destaque"
+        widget: "boolean"
+        default: false
 
-  * label: "Onde aparece?"
-    name: "secao"
-    widget: "select"
-    options:
+      - label: "Descrição da página"
+        name: "body"
+        widget: "markdown"
+        required: false
 
-    * { label: "Artigos", value: "artigos" }
-    * { label: "Resenhas", value: "resenhas" }
-    * { label: "Livros", value: "livros" }
-    * { label: "Revistas EBD", value: "revistas" }
+  - name: "videos_youtube"
+    label: "🎥 Vídeos do YouTube"
+    folder: "_conteudos"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "conteudos/{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
+      - { label: "Tipo", name: "tipo", widget: "hidden", default: "video" }
+      - { label: "Seção", name: "secao", widget: "hidden", default: "videos" }
 
-  * label: "Arquivo PDF"
-    name: "pdf"
-    widget: "file"
-    media_folder: "/assets/pdfs/uploads"
-    public_folder: "/assets/pdfs/uploads"
-    required: false
-    media_library:
-    config:
-    multiple: false
+      - label: "Título do vídeo"
+        name: "title"
+        widget: "string"
 
-  * label: "Imagem do card"
-    name: "image"
-    widget: "image"
-    required: false
-    media_library:
-    config:
-    multiple: false
+      - label: "Endereço da página"
+        name: "slug"
+        widget: "string"
 
-  * label: "Resumo para o card"
-    name: "description"
-    widget: "text"
+      - label: "Link do YouTube"
+        name: "youtube_url"
+        widget: "string"
 
-  * label: "Origem/Publicação"
-    name: "origem"
-    widget: "string"
-    required: false
+      - label: "ID do vídeo"
+        name: "youtube_id"
+        widget: "string"
+        hint: "Ex: c_dtB3ze4Rg"
 
-  * label: "Data"
-    name: "date"
-    widget: "datetime"
-    format: "YYYY-MM-DD"
-    date_format: "DD/MM/YYYY"
-    time_format: false
+      - label: "Imagem manual do card"
+        name: "image"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: false
 
-  * label: "Destacar?"
-    name: "destaque"
-    widget: "boolean"
-    default: false
+      - label: "Resumo para o card"
+        name: "description"
+        widget: "text"
 
-  * label: "Descrição da página"
-    name: "body"
-    widget: "markdown"
-    required: false
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
 
-* name: "videos_youtube"
-  label: "🎥 Vídeos do YouTube"
-  folder: "_conteudos"
-  create: true
-  slug: "{{slug}}"
-  extension: "md"
-  format: "frontmatter"
-  preview_path: "conteudos/{{slug}}"
-  fields:
-
-  * { label: "Layout", name: "layout", widget: "hidden", default: "conteudo" }
-
-  * { label: "Tipo", name: "tipo", widget: "hidden", default: "video" }
-
-  * { label: "Seção", name: "secao", widget: "hidden", default: "videos" }
-
-  * label: "Título do vídeo"
-    name: "title"
-    widget: "string"
-
-  * label: "Endereço da página"
-    name: "slug"
-    widget: "string"
-
-  * label: "Link do YouTube"
-    name: "youtube_url"
-    widget: "string"
-
-  * label: "ID do vídeo"
-    name: "youtube_id"
-    widget: "string"
-    hint: "Ex: c_dtB3ze4Rg"
-
-  * label: "Imagem manual do card"
-    name: "image"
-    widget: "image"
-    required: false
-    media_library:
-    config:
-    multiple: false
-
-  * label: "Resumo para o card"
-    name: "description"
-    widget: "text"
-
-  * label: "Data"
-    name: "date"
-    widget: "datetime"
-    format: "YYYY-MM-DD"
-    date_format: "DD/MM/YYYY"
-    time_format: false
-
-  * label: "Destacar?"
-    name: "destaque"
-    widget: "boolean"
-    default: false
+      - label: "Destacar?"
+        name: "destaque"
+        widget: "boolean"
+        default: false
