@@ -33,3 +33,10 @@ defaults:
       layout: "conteudo"
 
 markdown: kramdown
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - .jekyll-cache
+  - _site
