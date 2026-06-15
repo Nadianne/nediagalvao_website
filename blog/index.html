@@ -59,67 +59,46 @@ description: "Artigos, resenhas, livros, revistas EBD e vídeos de Nédia Galvã
   </div>
 
   <div class="content-scroll">
+    {% assign artigos = site.conteudos | where: "secao", "artigos" | sort: "date" | reverse %}
+
+    {% for conteudo in artigos %}
     <article class="content-card">
-      <img src="/assets/img/cards/ojb/biblia-mulher-calar-profetizar.png"
-        alt="A Bíblia ordena à mulher calar ou profetizar?">
+      {% if conteudo.image %}
+      <img src="{{ conteudo.image | relative_url }}" alt="{{ conteudo.title }}">
+      {% endif %}
 
       <div class="content-card-body">
         <span>Artigo</span>
-        <small>Publicado no OJB</small>
 
-        <h3>A Bíblia ordena à mulher calar ou profetizar?</h3>
+        {% if conteudo.origem %}
+        <small>{{ conteudo.origem }}</small>
+        {% else %}
+        <small>Publicado no blog</small>
+        {% endif %}
 
-        <p>
-          Reflexão sobre textos bíblicos relacionados à participação da mulher na igreja,
-          considerando contexto, interpretação e aplicação cristã.
-        </p>
+        <h3>{{ conteudo.title }}</h3>
 
-        <a href="/blog/a-biblia-ordena-a-mulher-calar-ou-profetizar/">
+        <p>{{ conteudo.description }}</p>
+
+        {% if conteudo.pdf %}
+        <a href="{{ conteudo.pdf | relative_url }}" class="download-link" data-material="{{ conteudo.title }}"
+          data-download-name="{{ conteudo.slug }}" data-download-type="PDF Artigo" target="_blank"
+          rel="noopener noreferrer">
+          Baixar PDF
+        </a>
+        {% elsif conteudo.external_url %}
+        <a href="{{ conteudo.external_url }}" class="external-link" data-material="{{ conteudo.title }}"
+          data-link-type="Artigo externo" target="_blank" rel="noopener noreferrer">
+          Acessar artigo
+        </a>
+        {% else %}
+        <a href="{{ conteudo.url | relative_url }}">
           Ler artigo
         </a>
+        {% endif %}
       </div>
     </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/ojb/maes-cristas-nao-sao-marionetes.png" alt="Mães cristãs não são marionetes">
-
-      <div class="content-card-body">
-        <span>Artigo</span>
-        <small>Publicado no OJB</small>
-
-        <h3>Mães cristãs não são marionetes</h3>
-
-        <p>
-          Uma reflexão sobre maternidade cristã, formação espiritual dos filhos,
-          responsabilidade e firmeza diante dos desafios da fé.
-        </p>
-
-        <a href="/blog/maes-cristas-nao-sao-marionetes/">
-          Ler artigo
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/ojb/pai-cristao-exemplo.png"
-        alt="Pai cristão, exemplo de consolação, exortação e testemunho">
-
-      <div class="content-card-body">
-        <span>Artigo</span>
-        <small>Publicado no OJB</small>
-
-        <h3>Pai cristão, exemplo de consolação, exortação e testemunho</h3>
-
-        <p>
-          Artigo sobre paternidade cristã, presença espiritual, exemplo familiar
-          e responsabilidade no cuidado com os filhos.
-        </p>
-
-        <a href="/blog/pai-cristao-exemplo-de-consolacao-exortacao-e-testemunho/">
-          Ler artigo
-        </a>
-      </div>
-    </article>
+    {% endfor %}
   </div>
 </section>
 <section class="content-row" id="resenhas">
@@ -133,110 +112,50 @@ description: "Artigos, resenhas, livros, revistas EBD e vídeos de Nédia Galvã
   </div>
 
   <div class="content-scroll">
+    {% assign resenhas = site.conteudos | where: "secao", "resenhas" | sort: "date" | reverse %}
+
+    {% for conteudo in resenhas %}
     <article class="content-card">
-      <img src="/assets/img/cards/os-dez-mandamentos.png" alt="Resenha acadêmica">
+      {% if conteudo.image %}
+      <img src="{{ conteudo.image | relative_url }}" alt="{{ conteudo.title }}">
+      {% endif %}
 
       <div class="content-card-body">
         <span>Resenha</span>
-        <small>Artigo externo</small>
 
-        <h3>OS DEZ MANDAMENTOS (+ UM)</h3>
-
-        <p>
-          Acesse a resenha publicada em periódico acadêmico externo.
-        </p>
-
-        <a href="https://periodicos.pucminas.br/SapereAude/article/view/14573" class="external-link"
-          data-material="Resenha - Sapere Aude PUC Minas" data-link-type="Resenha externa" target="_blank"
-          rel="noopener">
-          Acessar resenha
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/a-missao-crista.png" alt="Resenha acadêmica">
-
-      <div class="content-card-body">
-        <span>Resenha</span>
-        <small>Artigo externo</small>
-
-        <h3>Resenha publicada na Revista Contemplação</h3>
-
-        <p>
-          Acesse a resenha publicada na Revista Contemplação.
-        </p>
-
-        <a href="https://revista.fajopa.com/index.php/contemplacao/article/view/194" class="external-link"
-          data-material="Resenha - Revista Contemplação" data-link-type="Resenha externa" target="_blank"
-          rel="noopener">
-          Acessar resenha
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/agora-sim.png" alt="Resenha em PDF">
-
-      <div class="content-card-body">
-        <span>Resenha</span>
-        <small>PDF externo</small>
-
-        <h3>RRESENHA: AGORA SIM!: teologia na prática do começo ao fim.</h3>
-
-        <p>
-          Acesse a resenha em PDF disponibilizada pela Faculdade Cristã de Curitiba.
-        </p>
-
-        <a href="https://faculdadecristadecuritiba.com.br/wp-content/uploads/2024/05/Resenha-diagramada-Agora-Sim.pdf"
-          class="external-link" data-material="Resenha diagramada - Agora Sim" data-link-type="PDF externo"
-          target="_blank" rel="noopener">
-          Abrir PDF
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/em-busca-de-sentido.png" alt="Resenha Viktor Frankl">
-
-      <div class="content-card-body">
-        <span>Resenha</span>
+        {% if conteudo.origem %}
+        <small>{{ conteudo.origem }}</small>
+        {% elsif conteudo.pdf %}
         <small>PDF</small>
+        {% elsif conteudo.external_url %}
+        <small>Link externo</small>
+        {% else %}
+        <small>Publicado no blog</small>
+        {% endif %}
 
-        <h3>Resenha — Viktor Frankl</h3>
+        <h3>{{ conteudo.title }}</h3>
 
-        <p>
-          Uma resenha sobre sentido, sofrimento e reflexão existencial a partir da obra de Viktor Frankl.
-        </p>
+        <p>{{ conteudo.description }}</p>
 
-        <a href="/assets/pdfs/resenhas/resenha-viktor-frankl.pdf" class="download-link"
-          data-material="Resenha Viktor Frankl" data-download-name="Resenha Viktor Frankl"
-          data-download-type="PDF Resenha" target="_blank">
+        {% if conteudo.pdf %}
+        <a href="{{ conteudo.pdf | relative_url }}" class="download-link" data-material="{{ conteudo.title }}"
+          data-download-name="{{ conteudo.slug }}" data-download-type="PDF Resenha" target="_blank"
+          rel="noopener noreferrer">
           Baixar PDF
         </a>
-      </div>
-    </article>
-
-    <article class="content-card">
-      <img src="/assets/img/cards/saudades-de-deus.png" alt="Saudades de Deus">
-
-      <div class="content-card-body">
-        <span>Livro</span>
-        <small>PDF</small>
-
-        <h3>Saudades de Deus e outros textos</h3>
-
-        <p>
-          Coletânea de textos e reflexões sobre fé, vida cristã e espiritualidade.
-        </p>
-
-        <a href="/assets/pdfs/livros/saudades-de-deus-e-outros-textos.pdf" class="download-link"
-          data-material="Saudades de Deus e outros textos" data-download-name="Saudades de Deus e outros textos"
-          data-download-type="PDF Livro" target="_blank">
-          Baixar PDF
+        {% elsif conteudo.external_url %}
+        <a href="{{ conteudo.external_url }}" class="external-link" data-material="{{ conteudo.title }}"
+          data-link-type="Resenha externa" target="_blank" rel="noopener noreferrer">
+          Acessar resenha
         </a>
+        {% else %}
+        <a href="{{ conteudo.url | relative_url }}">
+          Ler resenha
+        </a>
+        {% endif %}
       </div>
     </article>
+    {% endfor %}
   </div>
 </section>
 
@@ -250,28 +169,41 @@ description: "Artigos, resenhas, livros, revistas EBD e vídeos de Nédia Galvã
   </div>
 
   <div class="content-scroll">
+    {% assign livros = site.conteudos | where: "secao", "livros" | sort: "date" | reverse %}
+
+    {% for conteudo in livros %}
     <article class="content-card">
-      <img src="/assets/img/cards/panorama-carta-judas-home.png" alt="Panorama da Carta de Judas">
+      {% if conteudo.image %}
+      <img src="{{ conteudo.image | relative_url }}" alt="{{ conteudo.title }}">
+      {% endif %}
 
       <div class="content-card-body">
         <span>Livro</span>
-        <small>PDF</small>
+        <small>{% if conteudo.pdf %}PDF{% else %}Publicado no blog{% endif %}</small>
 
-        <h3>Panorama da Carta de Judas</h3>
+        <h3>{{ conteudo.title }}</h3>
 
-        <p>
-          Um mergulho introdutório e reflexivo na Carta de Judas e sua atualidade.
-        </p>
+        <p>{{ conteudo.description }}</p>
 
-        <a href="/assets/pdfs/livros/livro-panorama-carta-de-judas.pdf" class="download-link"
-          data-material="Panorama da Carta de Judas" data-download-name="Livro Panorama da Carta de Judas"
-          data-download-type="PDF Livro" target="_blank">
+        {% if conteudo.pdf %}
+        <a href="{{ conteudo.pdf | relative_url }}" class="download-link" data-material="{{ conteudo.title }}"
+          data-download-name="{{ conteudo.slug }}" data-download-type="PDF Livro" target="_blank"
+          rel="noopener noreferrer">
           Baixar PDF
         </a>
+        {% elsif conteudo.external_url %}
+        <a href="{{ conteudo.external_url }}" class="external-link" data-material="{{ conteudo.title }}"
+          data-link-type="Livro externo" target="_blank" rel="noopener noreferrer">
+          Acessar livro
+        </a>
+        {% else %}
+        <a href="{{ conteudo.url | relative_url }}">
+          Ler mais
+        </a>
+        {% endif %}
       </div>
     </article>
-
-
+    {% endfor %}
   </div>
 </section>
 <section class="content-row" id="revistas">
@@ -335,107 +267,34 @@ description: "Artigos, resenhas, livros, revistas EBD e vídeos de Nédia Galvã
   </div>
 
   <div class="content-scroll">
+    {% assign videos = site.conteudos | where: "secao", "videos" | sort: "date" | reverse %}
+
+    {% for conteudo in videos %}
     <article class="content-card video-card">
-      <a href="https://www.youtube.com/watch?v=xhelkpMBQn0&list=PLowoidvyUc21KjLTLX8IU1QXHXP0L50NJ" target="_blank"
-        rel="noopener" class="video-thumb-link">
-        <img src="https://img.youtube.com/vi/xhelkpMBQn0/hqdefault.jpg" alt="Vídeo do canal Nédia Galvão">
+      <a href="{{ conteudo.youtube_url }}" target="_blank" rel="noopener noreferrer"
+        class="video-thumb-link external-link" data-material="{{ conteudo.title }}" data-link-type="Vídeo YouTube">
+        {% if conteudo.image %}
+        <img src="{{ conteudo.image | relative_url }}" alt="{{ conteudo.title }}">
+        {% elsif conteudo.youtube_id %}
+        <img src="https://img.youtube.com/vi/{{ conteudo.youtube_id }}/hqdefault.jpg" alt="{{ conteudo.title }}">
+        {% endif %}
       </a>
 
       <div class="content-card-body">
         <span>Vídeo</span>
         <small>YouTube</small>
 
-        <h3>Mensagem no canal Nédia Galvão</h3>
+        <h3>{{ conteudo.title }}</h3>
 
-        <p>Assista esta mensagem diretamente no canal do YouTube.</p>
+        <p>{{ conteudo.description }}</p>
 
-        <a href="https://www.youtube.com/watch?v=xhelkpMBQn0&list=PLowoidvyUc21KjLTLX8IU1QXHXP0L50NJ" target="_blank"
-          rel="noopener">
+        <a href="{{ conteudo.youtube_url }}" target="_blank" rel="noopener noreferrer" class="external-link"
+          data-material="{{ conteudo.title }}" data-link-type="Vídeo YouTube">
           Assistir no YouTube
         </a>
       </div>
     </article>
-
-    <article class="content-card video-card">
-      <a href="https://www.youtube.com/watch?v=q8gRdJJ6Oqw&list=PLowoidvyUc22vBbCYIdPwhn6Vp6Y6zZjr" target="_blank"
-        rel="noopener" class="video-thumb-link">
-        <img src="https://img.youtube.com/vi/q8gRdJJ6Oqw/hqdefault.jpg" alt="Vídeo do canal Nédia Galvão">
-      </a>
-
-      <div class="content-card-body">
-        <span>Vídeo</span>
-        <small>YouTube</small>
-
-        <h3>Estudo no canal Nédia Galvão</h3>
-
-        <p>Assista este estudo diretamente no canal do YouTube.</p>
-
-        <a href="https://www.youtube.com/watch?v=q8gRdJJ6Oqw&list=PLowoidvyUc22vBbCYIdPwhn6Vp6Y6zZjr" target="_blank"
-          rel="noopener">
-          Assistir no YouTube
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card video-card">
-      <a href="https://youtu.be/c_dtB3ze4Rg?si=n9kneXCE_Efle3td" target="_blank" rel="noopener"
-        class="video-thumb-link">
-        <img src="https://img.youtube.com/vi/c_dtB3ze4Rg/hqdefault.jpg" alt="Vídeo do canal Nédia Galvão">
-      </a>
-
-      <div class="content-card-body">
-        <span>Vídeo</span>
-        <small>YouTube</small>
-
-        <h3>Reflexão no canal Nédia Galvão</h3>
-
-        <p>Assista esta reflexão diretamente no canal do YouTube.</p>
-
-        <a href="https://youtu.be/c_dtB3ze4Rg?si=n9kneXCE_Efle3td" target="_blank" rel="noopener">
-          Assistir no YouTube
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card video-card">
-      <a href="https://youtu.be/VRVhnsdkFrU?si=7BhPfLySGOpYVN9j" target="_blank" rel="noopener"
-        class="video-thumb-link">
-        <img src="https://img.youtube.com/vi/VRVhnsdkFrU/hqdefault.jpg" alt="Vídeo do canal Nédia Galvão">
-      </a>
-
-      <div class="content-card-body">
-        <span>Vídeo</span>
-        <small>YouTube</small>
-
-        <h3>Mensagem bíblica</h3>
-
-        <p>Assista esta mensagem diretamente no canal do YouTube.</p>
-
-        <a href="https://youtu.be/VRVhnsdkFrU?si=7BhPfLySGOpYVN9j" target="_blank" rel="noopener">
-          Assistir no YouTube
-        </a>
-      </div>
-    </article>
-
-    <article class="content-card video-card">
-      <a href="https://youtu.be/VKVt0yrGWhA?si=LbDrpvBtV_WfeSxg" target="_blank" rel="noopener"
-        class="video-thumb-link">
-        <img src="https://img.youtube.com/vi/VKVt0yrGWhA/hqdefault.jpg" alt="Vídeo do canal Nédia Galvão">
-      </a>
-
-      <div class="content-card-body">
-        <span>Vídeo</span>
-        <small>YouTube</small>
-
-        <h3>Estudo bíblico</h3>
-
-        <p>Assista este estudo diretamente no canal do YouTube.</p>
-
-        <a href="https://youtu.be/VKVt0yrGWhA?si=LbDrpvBtV_WfeSxg" target="_blank" rel="noopener">
-          Assistir no YouTube
-        </a>
-      </div>
-    </article>
+    {% endfor %}
   </div>
 </section>
 

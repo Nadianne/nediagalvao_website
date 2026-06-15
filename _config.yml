@@ -9,6 +9,9 @@ collections:
   materiais:
     output: true
     permalink: /materiais/:title/
+  conteudos:
+    output: true
+    permalink: /conteudos/:slug/
 
 defaults:
   - scope:
@@ -16,10 +19,17 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
   - scope:
       path: ""
       type: "materiais"
     values:
       layout: "material"
+
+  - scope:
+      path: ""
+      type: "conteudos"
+    values:
+      layout: "conteudo"
 
 markdown: kramdown

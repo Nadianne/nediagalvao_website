@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+<main class="content-page">
+  <article class="content-article content-article--{{ page.modelo_artigo | default: 'simples' }}">
+
+    <header class="content-header">
+      <h1>{{ page.title }}</h1>
+
+      {% if page.origem %}
+      <p>{{ page.origem }}</p>
+      {% endif %}
+
+      {% if page.description %}
+      <p>{{ page.description }}</p>
+      {% endif %}
+    </header>
+
+    {% if page.tipo == "video" and page.youtube_id %}
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="{{ page.title }}" frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+    {% endif %}
+
+    {% if page.modelo_artigo == "imagem_topo" and page.image %}
+    <img class="content-main-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+
+    {% if page.modelo_artigo == "imagem_lateral" %}
+    <div class="content-with-side-image">
+      {% if page.image %}
+      <img class="content-side-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      {% endif %}
+
+      <div class="content-body">
+        {{ content }}
+      </div>
+    </div>
+    {% else %}
+    <div class="content-body">
+      {{ content }}
+    </div>
+    {% endif %}
+
+    {% if page.pdf %}
+    <p>
+      <a href="{{ page.pdf | relative_url }}" class="download-link" data-material="{{ page.title }}"
+        data-download-name="{{ page.slug }}" data-download-type="pdf" target="_blank" rel="noopener noreferrer">
+        Baixar PDF
+      </a>
+    </p>
+    {% endif %}
+
+    {% if page.external_url %}
+    <p>
+      <a href="{{ page.external_url }}" class="external-link" data-material="{{ page.title }}"
+        data-external-name="{{ page.slug }}" data-external-type="{{ page.tipo }}" target="_blank"
+        rel="noopener noreferrer">
+        Acessar conteúdo externo
+      </a>
+    </p>
+    {% endif %}
+
+    {% if page.tipo == "video" and page.youtube_url %}
+    <p>
+      <a href="{{ page.youtube_url }}" class="external-link" data-material="{{ page.title }}"
+        data-external-name="{{ page.slug }}" data-external-type="youtube" target="_blank" rel="noopener noreferrer">
+        Assistir no YouTube
+      </a>
+    </p>
+    {% endif %}
+
+  </article>
+</main>
