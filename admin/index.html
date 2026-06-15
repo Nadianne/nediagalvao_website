@@ -1,14 +1,47 @@
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>CMS | Nedia Galvão</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="utf-8" />
-  <title>CMS | Nedia Galvão</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+  </head>
 
-<body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+    <script>
+      fetch("/config-decap.yml?v=" + Date.now(), {
+        cache: "no-store"
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Erro ao carregar config-decap.yml: " + response.status);
+          }
+
+          return response.text();
+        })
+        .then(function (yamlText) {
+          const config = jsyaml.load(yamlText);
+          CMS.init({ config: config });
+        })
+        .catch(function (error) {
+          console.error(error);
+
+          document.body.innerHTML =
+            "<main style='font-family: sans-serif; max-width: 720px; margin: 80px auto; padding: 20px;'>" +
+            "<h1>Erro ao carregar o CMS</h1>" +
+            "<p>O arquivo de configuração do Decap não pôde ser carregado.</p>" +
+            "<pre style='white-space: pre-wrap; background: #eee; padding: 16px;'>" +
+            error.message +
+            "</pre>" +
+            "</main>";
+        });
+    </script>
+  </body>
 </html>

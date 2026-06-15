@@ -42,4 +42,4 @@ exclude:
   - _site
 include:
   - _headers
-  - admin/config.yml
+  - config-decap.yml
