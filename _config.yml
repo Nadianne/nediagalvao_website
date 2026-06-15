@@ -1,0 +1,25 @@
+title: "Nédia Galvão"
+description: "Blog, estudos bíblicos, resenhas, materiais cristãos e reflexões."
+url: "https://nediagalvao.com.br"
+baseurl: ""
+
+permalink: /blog/:title/
+
+collections:
+  materiais:
+    output: true
+    permalink: /materiais/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "materiais"
+    values:
+      layout: "material"
+
+markdown: kramdown
