@@ -1,14 +1,13 @@
 local_backend: true
 
 backend:
-  name: github
-  repo: Nadianne/nediagalvao_website
-  branch: main
+  name: git-gateway
+  branch: refactor-blog-local
 
 publish_mode: editorial_workflow
 
-site_url: https://nediagalvao.com.br
-display_url: https://nediagalvao.com.br
+site_url: https://joyful-gelato-0ad0f8.netlify.app
+display_url: https://joyful-gelato-0ad0f8.netlify.app
 
 locale: pt
 
@@ -59,6 +58,9 @@ collections:
         name: "image"
         widget: "image"
         required: false
+        media_library:
+          config:
+            multiple: false
 
       - label: "Origem/Publicação"
         name: "origem"
@@ -117,7 +119,7 @@ collections:
       - label: "Arquivo PDF"
         name: "pdf"
         widget: "file"
-        media_folder: "/assets/pdfs/uploads"
+        media_folder: "assets/pdfs/uploads"
         public_folder: "/assets/pdfs/uploads"
         required: false
         media_library:
@@ -211,4 +213,3 @@ collections:
         name: "destaque"
         widget: "boolean"
         default: false
-
