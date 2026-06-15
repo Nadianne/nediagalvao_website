@@ -40,3 +40,6 @@ exclude:
   - package-lock.json
   - .jekyll-cache
   - _site
+include:
+  - _headers
+  - admin/config.yml
