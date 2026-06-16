@@ -11,7 +11,7 @@ description: Reflexão sobre a diferença entre uma relação meramente
 image: https://images.pexels.com/photos/17898885/pexels-photo-17898885.jpeg
 origem: O Jornal Batista
 destaque: true
-modelo_artigo: imagem_lateral
+modelo_artigo: imagem_topo
 ---
 A experiência da regeneração se dá por obra do Espírito Santo e é uma ação de dentro para fora do ser humano, isto é, gerada no interior e refletida no exterior através de uma vida transformada espiritualmente, moralmente, emocionalmente e até intelectualmente. A partir da regeneração, uma relação pessoal é entrelaçada com o Deus Trino, relação essa que deve ser nutrida continuamente para não cair numa relação meramente institucional.
 
