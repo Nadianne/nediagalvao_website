@@ -11,7 +11,7 @@ description: "Reflexão baseada em Filipenses 4.5, destacando que o Senhor está
 image: https://images.pexels.com/photos/34649076/pexels-photo-34649076.jpeg
 origem: O Jornal Batista
 destaque: true
-modelo_artigo: imagem_lateral
+modelo_artigo: imagem_topo
 ---
 Há uma ilustração que conta:
 
