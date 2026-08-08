@@ -15,13 +15,13 @@ modelo_artigo: imagem_topo
 ---
 A passagem do encontro de Jesus com a mulher samaritana, no Evangelho escrito por João, capítulo 4, é por demais conhecida. De fato, além disso, também é uma das mais belas passagens bíblicas.
 
-E em Samaria, quem diria?!
+**E em Samaria, quem diria?!**
 
 Samaria, cidade que ficava entre a Judeia, ao sul, e a Galileia, ao norte, foi a rota que Jesus julgou necessária para ir da Judeia à Galileia, conforme João 4.3-4.
 
-Sabemos as diferenças religiosas entre judeus e samaritanos e que essas diferenças tinham raízes profundas. Os samaritanos não tinham pureza racial e religiosa, e a hostilidade era tão séria que um judeu nem sonharia em pedir um favor a um samaritano, tampouco cruzar seu território.
+Sabemos das diferenças religiosas entre judeus e samaritanos e que essas diferenças tinham raízes profundas. Os samaritanos não tinham pureza racial e religiosa, e a hostilidade era tão séria que um judeu nem sonharia em pedir um favor a um samaritano, tampouco cruzar seu território.
 
-E em Samaria, quem diria?!
+**E em Samaria, quem diria?!**
 
 A visita do Messias!
 
@@ -57,13 +57,13 @@ Ele estabeleceu uma nova ordem: não é onde as pessoas adoram a Deus, mas como 
 
 Isso é lindo demais, porque essa explicação não foi dada a um homem, a um líder religioso, a alguém de reputação ilibada, mas a uma mulher de vida tão destruída, que ia sozinha ao poço, em pleno meio-dia, para não ser vista e hostilizada pelos demais.
 
-E em Samaria, quem diria?!
+**E em Samaria, quem diria?!**
 
 Aquela simples mulher recebeu a explicação acerca da adoração espiritual, o culto genuíno; que Deus é espírito e, por isso, o culto no qual Ele tem pleno prazer é espiritual, fruto de um sacrifício humilde, contrito, grato e sincero.
 
 Uma devoção verdadeira, em qualquer lugar e hora, é o verdadeiro culto a Deus, conforme João 4.20-24.
 
-E em Samaria, quem diria?!
+**E em Samaria, quem diria?!**
 
 Aquela mulher reconheceu o Messias.
 
@@ -77,4 +77,4 @@ Seu amor a alcançou.
 
 Quantas lições nesta história!
 
-E em Samaria, quem diria?!
+**E em Samaria, quem diria?!**
