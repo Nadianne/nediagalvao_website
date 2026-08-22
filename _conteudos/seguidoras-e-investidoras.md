@@ -8,8 +8,7 @@ date: 2024-03-03
 description: Reflexão sobre a participação das mulheres no ministério de Jesus,
   destacando aquelas que O seguiam e sustentavam Seu ministério com seus bens,
   como expressão de gratidão, fidelidade, piedade e amor ao Reino de Deus.
-image: "Foto de Israel Torres:
-  https://www.pexels.com/pt-br/foto/preto-e-branco-p-b-mulheres-sentado-2178266\
+image: "https://www.pexels.com/pt-br/foto/preto-e-branco-p-b-mulheres-sentado-2178266\
   4/"
 origem: O Jornal Batista
 destaque: true
